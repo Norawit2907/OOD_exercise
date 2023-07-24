@@ -21,7 +21,6 @@ class Queue:
         return len(self.items)
 
 # custome = [arrivetime, ordertime, id, waitedtime]
-ﾜ
 
 print(" ***Cafe***")
 log = input("Log : ").split('/')

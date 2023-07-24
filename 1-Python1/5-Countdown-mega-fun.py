@@ -1,38 +1,30 @@
 print("*** Fun with countdown ***")
-list = input("Enter List : ").split()
-num = []
-for i in list:
-    num.append(int(i))
-ans = []
-stack = []
-count = 0
-for i in range(len(num)-1):
+inputint = [int(x) for x in input("Enter List : ").split()]
+list = [1]
+temp = []
+for i in range(len(inputint) - 1):
 
-    if num[i] - num[i+1] == 1:
-        stack.append(num[i])
-        #print("append!!", stack)
 
-    if num[i] == 1:
-        stack.append(num[i])
-        ans.append([x for x in stack])
-        #print("answer!", stack, ans)
-        count += 1
+    if inputint[i] - inputint[i+1] == 1:
+        print(f"{inputint[i]} {inputint[i+1]}")
+        temp.append(inputint[i])
+        print(f"append:{temp}")
+        if inputint[i+1] == 1:
+            temp.append(1)
+            list.append([x for x in temp])
+    elif inputint[i] == 1:
+        list.append([1])
+    
+    else:
+        temp.clear()
 
-    if num[i]-num[i+1] != 1:
-        #print("clear!", stack)
-        stack.clear()
 
-if num[len(num)-1] == 1:
-    stack.append(num[len(num)-1])
-    ans.append([x for x in stack])
-    #print("answer!", stack, ans)
-    count += 1
 
+if len(list) == 1:
+    print("no countdown")
 else:
-    #print("clear!!!", stack)
-    stack.clear()
+    list[0] = len(list) - 1
 
-final = []
-final.append(count)
-final.append(ans)
-print(final)
+print(list)
+
+
