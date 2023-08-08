@@ -1,31 +1,29 @@
 class Stack():
     def __init__(self):
-        self.items = []
-
-    def push(self, item):
-        self.items.append(item)
-
-    def pop(self):
-        return self.items.pop()
+        self.item = []
     
-    def peak(self):
-        return self.items[-1]
+    def push(self, value):
+        self.item.append(value)
+    
+    def pop(self):
+        return self.item.pop()
+
+    def peek(self):
+        return self.item[-1]
 
     def isEmpty(self):
-        return self.items == []
-    
+        return self.item == []
+
     def size(self):
-        return len(self.items)
+        return len(self.item)
 
-inputstr = input("input str: ").split(',')
-stack = Stack()
+inputstr = input("ENTER : ").split(',')
+s = Stack()
+
 for curplate in inputstr:
-    curweight = int(curplate.split()[0])
-    curfreq = int(curplate.split()[1])
-
-    while stack.isEmpty() == False and int(stack.peak().split()[0]) < int(curweight):
-        print(f"{stack.peak().split()[1]}")
-        stack.pop()
-        
-    stack.push(curplate)
-
+    weight = int(curplate.split()[0])
+    freq = int(curplate.split()[1])
+    while s.isEmpty() == False and int(s.peek().split()[0]) <= weight:
+        print(s.peek().split()[1])
+        s.pop()
+    s.push(curplate)
