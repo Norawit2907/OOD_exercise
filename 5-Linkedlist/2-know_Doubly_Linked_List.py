@@ -84,7 +84,7 @@ class LinkedList:
             temp = temp.next
             i += 1
         return -1
-
+    
     def size(self):
         temp = self.head
         s = 0
